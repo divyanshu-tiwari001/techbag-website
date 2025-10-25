@@ -1,108 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Zap, Shield, Sparkles, X, Mail, Phone, MapPin, AlertCircle, Sun, Moon, ChevronRight, Star, Award, TrendingUp } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  ShoppingBag, Zap, Shield, Sparkles, X, Mail, Phone, MapPin, AlertCircle,
+  Sun, Moon, ChevronRight, Star, Award, TrendingUp
+} from "lucide-react";
 
-export default function TechBagLanding() {
+export default function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
 
-  useEffect(() => {
-    setShowPopup(true);
-  }, []);
+  useEffect(() => { setShowPopup(true); }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
-
-  const handleButtonClick = () => {
-    setShowAlert(true);
-  };
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
+  const handleButtonClick = () => setShowAlert(true);
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   const theme = {
-    bg: darkMode ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950' : 'bg-gradient-to-br from-slate-50 via-white to-slate-100',
-    navBg: darkMode ? 'bg-slate-900/95 backdrop-blur-xl' : 'bg-white/95 backdrop-blur-xl',
-    cardBg: darkMode ? 'bg-slate-900/80' : 'bg-white',
-    text: darkMode ? 'text-slate-100' : 'text-slate-900',
-    textSecondary: darkMode ? 'text-slate-400' : 'text-slate-600',
-    border: darkMode ? 'border-slate-800' : 'border-slate-200',
-    hover: darkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-50',
-    shadow: darkMode ? 'shadow-black/50' : 'shadow-slate-300/50',
-    accent: darkMode ? 'bg-violet-500/10' : 'bg-violet-100',
-    accentText: darkMode ? 'text-violet-400' : 'text-violet-700',
+    bg: darkMode
+      ? "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+      : "bg-gradient-to-br from-slate-50 via-white to-slate-100",
+    navBg: darkMode
+      ? "bg-slate-900/95 backdrop-blur-xl"
+      : "bg-white/95 backdrop-blur-xl",
+    cardBg: darkMode ? "bg-slate-900/80" : "bg-white",
+    text: darkMode ? "text-slate-100" : "text-slate-900",
+    textSecondary: darkMode ? "text-slate-400" : "text-slate-600",
+    border: darkMode ? "border-slate-800" : "border-slate-200",
+    hover: darkMode ? "hover:bg-slate-800" : "hover:bg-slate-50",
+    shadow: darkMode ? "shadow-black/50" : "shadow-slate-300/50",
+    accent: darkMode ? "bg-violet-500/10" : "bg-violet-100",
+    accentText: darkMode ? "text-violet-400" : "text-violet-700",
   };
 
   return (
-    <div className={`min-h-screen ${theme.bg} transition-colors duration-500`}>
+    <div className={`min-h-screen ${theme.bg} font-sans transition-colors duration-500`}>
+      {/* Custom Font Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-        
         .font-playfair { font-family: 'Playfair Display', serif; }
         .font-cormorant { font-family: 'Cormorant Garamond', serif; }
         .font-inter { font-family: 'Inter', sans-serif; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        
         .elegant-text {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          background: linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
+          background-clip:text;
         }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        .animate-slide-up {
-          animation: slideUp 0.6s ease-out;
-        }
-        
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .glass-card {
-          background: ${darkMode ? 'rgba(15, 23, 42, 0.7)' : 'rgba(255, 255, 255, 0.7)'};
-          backdrop-filter: blur(20px);
-          border: 1px solid ${darkMode ? 'rgba(148, 163, 184, 0.1)' : 'rgba(148, 163, 184, 0.2)'};
-        }
-        
-        .gradient-border {
-          position: relative;
-          background: ${darkMode ? '#0f172a' : '#ffffff'};
-          border-radius: 1.5rem;
-          padding: 2px;
-        }
-        
-        .gradient-border::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 1.5rem;
-          padding: 2px;
-          background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-        }
-      `}</style>
+        .animate-float { animation: float 6s ease-in-out infinite;}
+        @keyframes float {0%,100%{transform:translateY(0px);}50%{transform:translateY(-20px);} }
+        .animate-slide-up {animation: slideUp 0.6s ease-out;}
+        @keyframes slideUp {from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);} }
+      `}
+      </style>
 
       {/* Designer Credit Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-slide-up">
-          <div className={`${darkMode ? 'bg-slate-900' : 'bg-white'} rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 ${darkMode ? 'border-violet-500/30' : 'border-violet-300'}`}>
+          <div className={`${darkMode ? "bg-slate-900" : "bg-white"} rounded-3xl p-10 max-w-lg w-full shadow-2xl transition-all border-2 ${darkMode ? "border-violet-500/30" : "border-violet-300"}`}>
             <div className="flex justify-between items-start mb-6">
               <div className="flex items-center space-x-3">
                 <div className="p-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600">
@@ -110,12 +68,7 @@ export default function TechBagLanding() {
                 </div>
                 <h3 className={`text-2xl font-bold ${theme.text} font-playfair`}>Designer Credit</h3>
               </div>
-              <button 
-                onClick={() => setShowPopup(false)}
-                className={`${theme.textSecondary} hover:${theme.text} transition-colors p-2 hover:bg-slate-800 rounded-lg`}
-              >
-                <X className="w-6 h-6" />
-              </button>
+              <button onClick={() => setShowPopup(false)} className={`${theme.textSecondary} hover:${theme.text} transition-colors p-2 hover:bg-slate-800 rounded-lg`}><X className="w-6 h-6" /></button>
             </div>
             <div className="space-y-4">
               <p className={`${theme.text} text-lg leading-relaxed font-cormorant`}>
@@ -130,10 +83,7 @@ export default function TechBagLanding() {
                 ⚠️ Note: This is an artistic website design demonstration. The interactive buttons and features are not functional for actual e-commerce transactions.
               </p>
             </div>
-            <button 
-              onClick={() => setShowPopup(false)}
-              className="mt-8 w-full bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-white py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-violet-500/50 transition-all font-montserrat tracking-wide"
-            >
+            <button onClick={() => setShowPopup(false)} className="mt-8 w-full bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-white py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-violet-500/50 transition-all font-montserrat tracking-wide">
               Understood, Let's Explore
             </button>
           </div>
@@ -143,7 +93,7 @@ export default function TechBagLanding() {
       {/* Under Development Alert */}
       {showAlert && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
-          <div className={`${darkMode ? 'bg-slate-900' : 'bg-white'} rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 ${darkMode ? 'border-amber-500/30' : 'border-amber-300'}`}>
+          <div className={`${darkMode ? "bg-slate-900" : "bg-white"} rounded-3xl p-10 max-w-lg w-full shadow-2xl border-2 ${darkMode ? "border-amber-500/30" : "border-amber-300"}`}>
             <div className="flex justify-between items-start mb-6">
               <div className="flex items-center space-x-3">
                 <div className="p-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500">
@@ -151,29 +101,18 @@ export default function TechBagLanding() {
                 </div>
                 <h3 className={`text-2xl font-bold ${theme.text} font-playfair`}>Feature Unavailable</h3>
               </div>
-              <button 
-                onClick={() => setShowAlert(false)}
-                className={`${theme.textSecondary} hover:${theme.text} transition-colors p-2 hover:bg-slate-800 rounded-lg`}
-              >
+              <button onClick={() => setShowAlert(false)} className={`${theme.textSecondary} hover:${theme.text} transition-colors p-2 hover:bg-slate-800 rounded-lg`}>
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <p className={`${theme.text} text-lg leading-relaxed mb-4 font-cormorant`}>
-              This feature is currently not operational. The website is in demonstration mode.
-            </p>
-            <p className={`${theme.textSecondary} text-sm leading-relaxed mb-8 font-inter`}>
-              This is a meticulously crafted design showcase presenting the visual layout and user interface. Complete functionality will be implemented in the production release.
-            </p>
-            <button 
-              onClick={() => setShowAlert(false)}
-              className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-500/50 transition-all font-montserrat tracking-wide"
-            >
-              Acknowledged
-            </button>
+            <p className={`${theme.text} text-lg leading-relaxed mb-4 font-cormorant`}>This feature is currently not operational. The website is in demonstration mode.</p>
+            <p className={`${theme.textSecondary} text-sm leading-relaxed mb-8 font-inter`}>This is a meticulously crafted design showcase presenting the visual layout and user interface. Complete functionality will be implemented in the production release.</p>
+            <button onClick={() => setShowAlert(false)} className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-500/50 transition-all font-montserrat tracking-wide">Acknowledged</button>
           </div>
         </div>
       )}
 
+      
       {/* Navbar */}
       <nav className={`${theme.navBg} shadow-lg ${theme.shadow} sticky top-0 z-40 border-b ${theme.border}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
