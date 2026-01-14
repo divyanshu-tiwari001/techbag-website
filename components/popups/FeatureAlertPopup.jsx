@@ -58,7 +58,7 @@ function FeatureAlertPopup({ show, onClose }) {
           </div>
           <button 
             onClick={onClose}
-            className={`${theme.textSecondary} hover:${theme.text} transition-colors p-2 hover:bg-slate-800 rounded-lg`}
+            className={`${theme.textSecondary} ${darkMode ? 'hover:text-slate-100' : 'hover:text-slate-900'} transition-colors p-2 ${darkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-100'} rounded-lg`}
             aria-label="Close feature alert popup"
           >
             <X className="w-6 h-6" />

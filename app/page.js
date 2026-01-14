@@ -24,10 +24,15 @@ function AppContent() {
 
   // Show designer popup on first mount (check localStorage for preference)
   useEffect(() => {
-    const hasSeenPopup = localStorage.getItem('techbag-designer-popup-seen');
-    if (!hasSeenPopup) {
-      setShowDesignerPopup(true);
-    }
+    // Small delay to ensure page is fully loaded
+    const timer = setTimeout(() => {
+      const hasSeenPopup = localStorage.getItem('techbag-designer-popup-seen');
+      if (!hasSeenPopup) {
+        setShowDesignerPopup(true);
+      }
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const handleCloseDesignerPopup = () => {
