@@ -11,7 +11,7 @@ import { useTheme } from '../../context/useTheme';
  * @param {Function} props.onClose - Callback to close the popup
  */
 function DesignerCreditPopup({ show, onClose }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   // Handle ESC key to close popup
   useEffect(() => {
@@ -46,7 +46,7 @@ function DesignerCreditPopup({ show, onClose }) {
       aria-modal="true"
       aria-labelledby="designer-credit-title"
     >
-      <div className={`${darkMode ? 'bg-slate-900' : 'bg-white'} rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 ${darkMode ? 'border-violet-500/30' : 'border-violet-300'}`}>
+      <div className="bg-[#1a1f2e] rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 border-[#2a3142]">
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center space-x-3">
             <div className="p-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600">
@@ -58,7 +58,7 @@ function DesignerCreditPopup({ show, onClose }) {
           </div>
           <button 
             onClick={onClose}
-            className={`${theme.textSecondary} ${darkMode ? 'hover:text-slate-100' : 'hover:text-slate-900'} transition-colors p-2 ${darkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-100'} rounded-lg`}
+            className={`${theme.textSecondary} hover:text-slate-100 transition-colors p-2 hover:bg-[#252b3a] rounded-lg`}
             aria-label="Close designer credit popup"
           >
             <X className="w-6 h-6" />
@@ -71,11 +71,11 @@ function DesignerCreditPopup({ show, onClose }) {
             using the remarkable{' '}
             <span className="font-bold elegant-text text-xl">CLAUDE AI</span>.
           </p>
-          <div className={`p-4 rounded-xl ${theme.accent} border ${theme.border}`}>
+          <div className="p-4 rounded-xl bg-violet-500/10 border border-[#2a3142]">
             <p className={`${theme.text} text-base leading-relaxed font-inter`}>
               📚 This website is part of a project given in{' '}
-              <span className="font-bold text-violet-500">YIIC 5.0</span> by mentor{' '}
-              <span className="font-bold text-violet-500">Mohd. Zahur</span>.
+              <span className="font-bold text-violet-400">YIIC 5.0</span> by mentor{' '}
+              <span className="font-bold text-violet-400">Mohd. Zahur</span>.
             </p>
           </div>
           <p className={`${theme.textSecondary} text-sm leading-relaxed font-inter`}>

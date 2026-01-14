@@ -5,7 +5,7 @@ import { ThemeContext } from './ThemeContext';
 
 /**
  * Custom hook to access theme context
- * @returns {Object} Theme context value containing darkMode, theme, and toggleTheme
+ * @returns {Object} Theme context value containing theme
  * @throws {Error} If used outside of ThemeProvider
  */
 export function useTheme() {

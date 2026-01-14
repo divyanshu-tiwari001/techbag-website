@@ -1,15 +1,15 @@
 'use client'
 
 import React, { useState } from 'react';
-import { ShoppingBag, Sun, Moon, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useTheme } from '../../context/useTheme';
 import { NAV_LINKS } from '../../lib/constants';
 
 /**
- * Header component with navigation and theme toggle
+ * Header component with navigation
  */
 function Navbar() {
-  const { darkMode, theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
@@ -28,7 +28,7 @@ function Navbar() {
           <div className="flex items-center space-x-3">
             <div className="relative">
               <ShoppingBag 
-                className={`w-9 h-9 ${darkMode ? 'text-violet-400' : 'text-violet-600'}`} 
+                className="w-9 h-9 text-violet-400" 
                 aria-hidden="true"
               />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-fuchsia-500 rounded-full animate-pulse" aria-hidden="true"></div>
@@ -53,19 +53,10 @@ function Navbar() {
               ))}
             </div>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className={`p-3 rounded-xl ${darkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-100 hover:bg-slate-200'} transition-all ${theme.text} shadow-lg`}
-              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-3 rounded-xl ${darkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-100 hover:bg-slate-200'} transition-all ${theme.text} shadow-lg`}
+              className={`md:hidden p-3 rounded-xl bg-[#252b3a] hover:bg-[#2a3142] transition-all ${theme.text} shadow-lg`}
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
             >
