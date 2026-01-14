@@ -71,11 +71,11 @@ function DesignerCreditPopup({ show, onClose }) {
             using the remarkable{' '}
             <span className="font-bold elegant-text text-xl">CLAUDE AI</span>.
           </p>
-          <div className="p-4 rounded-xl bg-violet-500/10 border border-[#2a3142]">
+          <div className={`p-4 rounded-xl ${theme.accent} border ${theme.border}`}>
             <p className={`${theme.text} text-base leading-relaxed font-inter`}>
               📚 This website is part of a project given in{' '}
-              <span className="font-bold text-violet-400">YIIC 5.0</span> by mentor{' '}
-              <span className="font-bold text-violet-400">Mohd. Zahur</span>.
+              <span className={`font-bold ${theme.accentText}`}>YIIC 5.0</span> by mentor{' '}
+              <span className={`font-bold ${theme.accentText}`}>Mohd. Zahur</span>.
             </p>
           </div>
           <p className={`${theme.textSecondary} text-sm leading-relaxed font-inter`}>
