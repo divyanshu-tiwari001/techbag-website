@@ -11,7 +11,7 @@ import { useTheme } from '../../context/useTheme';
  * @param {Function} props.onClose - Callback to close the popup
  */
 function FeatureAlertPopup({ show, onClose }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   // Handle ESC key to close popup
   useEffect(() => {
@@ -46,7 +46,7 @@ function FeatureAlertPopup({ show, onClose }) {
       aria-modal="true"
       aria-labelledby="feature-alert-title"
     >
-      <div className={`${darkMode ? 'bg-slate-900' : 'bg-white'} rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 ${darkMode ? 'border-amber-500/30' : 'border-amber-300'}`}>
+      <div className="bg-[#1a1f2e] rounded-3xl p-10 max-w-lg w-full shadow-2xl transform transition-all border-2 border-[#2a3142]">
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center space-x-3">
             <div className="p-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500">
@@ -58,7 +58,7 @@ function FeatureAlertPopup({ show, onClose }) {
           </div>
           <button 
             onClick={onClose}
-            className={`${theme.textSecondary} ${darkMode ? 'hover:text-slate-100' : 'hover:text-slate-900'} transition-colors p-2 ${darkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-100'} rounded-lg`}
+            className={`${theme.textSecondary} hover:text-slate-100 transition-colors p-2 hover:bg-[#252b3a] rounded-lg`}
             aria-label="Close feature alert popup"
           >
             <X className="w-6 h-6" />

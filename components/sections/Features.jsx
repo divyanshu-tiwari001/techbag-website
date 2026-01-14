@@ -18,7 +18,7 @@ const iconMap = {
  * @param {Function} props.onButtonClick - Callback for button clicks
  */
 function Features({ onButtonClick }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <section id="about" className="py-24 px-6 lg:px-8">
@@ -43,7 +43,7 @@ function Features({ onButtonClick }) {
             return (
               <div 
                 key={feature.id}
-                className={`${theme.cardBg} p-10 rounded-3xl hover:shadow-2xl ${darkMode ? feature.hoverShadow : `${feature.hoverShadow.replace('hover:shadow-', 'hover:shadow-').replace('/20', '/30')}`} transition-all transform hover:-translate-y-3 border-2 ${theme.border} group`}
+                className={`${theme.cardBg} p-10 rounded-3xl hover:shadow-2xl ${feature.hoverShadow} transition-all transform hover:-translate-y-3 border-2 ${theme.border} group`}
               >
                 <div className={`${feature.iconBg} w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-lg ${feature.iconShadow} group-hover:scale-110 transition-transform`}>
                   <IconComponent className="w-10 h-10 text-white" aria-hidden="true" />

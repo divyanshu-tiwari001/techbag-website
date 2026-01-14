@@ -12,10 +12,10 @@ import { useTheme } from '../../context/useTheme';
  * @param {Function} props.onButtonClick - Callback for button clicks
  */
 function ProductCard({ product, onButtonClick }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
-    <div className={`${theme.cardBg} rounded-3xl overflow-hidden shadow-xl ${theme.shadow} hover:shadow-2xl ${darkMode ? product.hoverShadow : product.hoverShadow.replace('/30', '/40')} transition-all transform hover:-translate-y-3 border-2 ${theme.border} group`}>
+    <div className={`${theme.cardBg} rounded-3xl overflow-hidden shadow-xl ${theme.shadow} hover:shadow-2xl ${product.hoverShadow} transition-all transform hover:-translate-y-3 border-2 ${theme.border} group`}>
       <div className="relative overflow-hidden h-80">
         <Image 
           src={product.image}

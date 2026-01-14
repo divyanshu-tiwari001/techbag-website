@@ -17,10 +17,10 @@ const iconMap = {
  * Trust indicators section component
  */
 function TrustIndicators() {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
-    <section className={`py-16 px-6 lg:px-8 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-50/50'} border-y ${theme.border}`}>
+    <section className="py-16 px-6 lg:px-8 bg-[#151921]/50 border-y border-[#2a3142]">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
           {TRUST_INDICATORS.map((indicator) => {

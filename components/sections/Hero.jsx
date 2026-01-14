@@ -12,7 +12,7 @@ import { STATS, HERO_IMAGE } from '../../lib/constants';
  * @param {Function} props.onButtonClick - Callback for button clicks
  */
 function Hero({ onButtonClick }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <section id="home" className="relative py-24 px-6 lg:px-8 overflow-hidden">
@@ -69,7 +69,7 @@ function Hero({ onButtonClick }) {
               </button>
               <button 
                 onClick={onButtonClick}
-                className={`${darkMode ? 'bg-slate-800 text-violet-400 border-violet-500' : 'bg-white text-violet-600 border-violet-400'} px-10 py-5 rounded-full font-semibold border-2 hover:shadow-xl transition-all font-montserrat tracking-wide text-lg`}
+                className="bg-[#252b3a] text-violet-400 border-violet-500 px-10 py-5 rounded-full font-semibold border-2 hover:shadow-xl transition-all font-montserrat tracking-wide text-lg"
                 aria-label="Customize your backpack"
               >
                 Customize Yours
