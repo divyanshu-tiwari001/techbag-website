@@ -11,28 +11,28 @@ import { ThemeContext } from './ThemeContext';
 const getTheme = (darkMode) => ({
   bg: darkMode 
     ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950' 
-    : 'bg-gradient-to-br from-slate-50 via-white to-slate-100',
+    : 'bg-gradient-to-br from-slate-100 via-slate-200 to-slate-100',
   navBg: darkMode 
     ? 'bg-slate-900/95 backdrop-blur-xl' 
     : 'bg-white/95 backdrop-blur-xl',
   cardBg: darkMode 
-    ? 'bg-slate-900/80' 
+    ? 'bg-slate-900' 
     : 'bg-white',
   text: darkMode 
     ? 'text-slate-100' 
     : 'text-slate-900',
   textSecondary: darkMode 
     ? 'text-slate-400' 
-    : 'text-slate-600',
+    : 'text-slate-700',
   border: darkMode 
     ? 'border-slate-800' 
-    : 'border-slate-200',
+    : 'border-slate-300',
   hover: darkMode 
     ? 'hover:bg-slate-800' 
     : 'hover:bg-slate-50',
   shadow: darkMode 
     ? 'shadow-black/50' 
-    : 'shadow-slate-300/50',
+    : 'shadow-slate-500/30',
   accent: darkMode 
     ? 'bg-violet-500/10' 
     : 'bg-violet-100',
