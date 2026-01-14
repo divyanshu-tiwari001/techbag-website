@@ -26,7 +26,9 @@ function AppContent() {
   // Force popup to show for testing/demonstration
   useEffect(() => {
     // Clear localStorage to ensure popup always shows for demo
-    localStorage.removeItem('techbag-designer-popup-seen');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('techbag-designer-popup-seen');
+    }
     
     // Small delay to ensure page is fully loaded
     const timer = setTimeout(() => {
