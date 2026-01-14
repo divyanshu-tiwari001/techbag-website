@@ -29,7 +29,7 @@ const getTheme = (darkMode) => ({
     : 'border-slate-300',
   hover: darkMode 
     ? 'hover:bg-slate-800' 
-    : 'hover:bg-slate-50',
+    : 'hover:bg-slate-100',
   shadow: darkMode 
     ? 'shadow-black/50' 
     : 'shadow-slate-500/30',
