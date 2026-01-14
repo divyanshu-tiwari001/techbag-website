@@ -11,10 +11,10 @@ import ProductCard from '../ui/ProductCard';
  * @param {Function} props.onButtonClick - Callback for button clicks
  */
 function Products({ onButtonClick }) {
-  const { darkMode, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
-    <section id="products" className={`py-24 px-6 lg:px-8 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-50/50'}`}>
+    <section id="products" className="py-24 px-6 lg:px-8 bg-[#151921]/50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <div className="inline-block mb-4">
