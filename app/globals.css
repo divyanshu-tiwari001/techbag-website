@@ -42,6 +42,16 @@ body {
   background-clip: text;
 }
 
+/* Darker variant for light mode to improve contrast */
+@media (prefers-color-scheme: light) {
+  .elegant-text {
+    background: linear-gradient(135deg, #5568d3 0%, #6b3fa3 50%, #e081f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
 /* Floating animation */
 .animate-float {
   animation: float 6s ease-in-out infinite;
