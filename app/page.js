@@ -22,14 +22,15 @@ function AppContent() {
   const [showDesignerPopup, setShowDesignerPopup] = useState(false);
   const [showFeatureAlert, setShowFeatureAlert] = useState(false);
 
-  // Show designer popup on first mount (check localStorage for preference)
+  // Show designer popup on first mount
+  // Force popup to show for testing/demonstration
   useEffect(() => {
+    // Clear localStorage to ensure popup always shows for demo
+    localStorage.removeItem('techbag-designer-popup-seen');
+    
     // Small delay to ensure page is fully loaded
     const timer = setTimeout(() => {
-      const hasSeenPopup = localStorage.getItem('techbag-designer-popup-seen');
-      if (!hasSeenPopup) {
-        setShowDesignerPopup(true);
-      }
+      setShowDesignerPopup(true);
     }, 500);
     
     return () => clearTimeout(timer);
