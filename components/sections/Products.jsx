@@ -31,13 +31,19 @@ function Products({ onButtonClick }) {
         </div>
         
         <div className="grid md:grid-cols-3 gap-10">
-          {PRODUCTS.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              onButtonClick={onButtonClick}
-            />
-          ))}
+          {PRODUCTS.map((product, idx) => {
+            const patched = { ...product };
+            if (patched.image && patched.image.includes('photo-1577982787983-e07c6730f2d8')) {
+              patched.image = 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&h=400&fit=crop';
+            }
+            return (
+              <ProductCard 
+                key={patched.id ?? idx} 
+                product={patched} 
+                onButtonClick={onButtonClick}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
