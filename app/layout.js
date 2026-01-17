@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "TechBag - AI-Personalized Premium Backpacks",
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
+        {/* Vercel Analytics */}
         <Analytics />
+        {/* Vercel Speed Insights (Next) */}
+        <SpeedInsights />
       </body>
     </html>
   );
