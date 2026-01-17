@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTheme } from '../../context/useTheme';
 import { PRODUCTS } from '../../lib/constants';
 import ProductCard from '../ui/ProductCard';
@@ -12,6 +12,19 @@ import ProductCard from '../ui/ProductCard';
  */
 function Products({ onButtonClick }) {
   const { darkMode, theme } = useTheme();
+
+  // Runtime patch: replace failing Unsplash image with working one
+  const patchedProducts = useMemo(() => {
+    return PRODUCTS.map((product) => {
+      if (product.image && product.image.includes('photo-1577982787983-e07c6730f2d8')) {
+        return {
+          ...product,
+          image: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&h=400&fit=crop'
+        };
+      }
+      return product;
+    });
+  }, []);
 
   return (
     <section id="products" className={`py-24 px-6 lg:px-8 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-50/50'}`}>
@@ -31,20 +44,13 @@ function Products({ onButtonClick }) {
         </div>
         
         <div className="grid md:grid-cols-3 gap-10">
-          {PRODUCTS.map((product) => {
-            // Runtime patch: replace failing Unsplash image with working one
-            const patched = { ...product };
-            if (patched.image && patched.image.includes('photo-1577982787983-e07c6730f2d8')) {
-              patched.image = 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&h=400&fit=crop';
-            }
-            return (
-              <ProductCard 
-                key={product.id} 
-                product={patched} 
-                onButtonClick={onButtonClick}
-              />
-            );
-          })}
+          {patchedProducts.map((product) => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onButtonClick={onButtonClick}
+            />
+          ))}
         </div>
       </div>
     </section>
