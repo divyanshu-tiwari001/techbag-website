@@ -56,14 +56,18 @@ export function ThemeProvider({ children }) {
 
   // Store theme preference in localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem('techbag-theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('techbag-theme');
+      if (savedTheme) {
+        setDarkMode(savedTheme === 'dark');
+      }
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('techbag-theme', darkMode ? 'dark' : 'light');
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('techbag-theme', darkMode ? 'dark' : 'light');
+    }
   }, [darkMode]);
 
   const value = {
